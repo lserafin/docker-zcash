@@ -57,7 +57,7 @@ RUN cd /opt/code/zcash/src && \
 # generate a dummy config
 RUN PASS=$(date | md5sum | cut -c1-24); mkdir -p /root/.zcash/; \
     printf '%s\n%s\n%s\n%s\n%s\n' "rpcuser=zcashrpc" "rpcpassword=${PASS}" \
-    "addnode=mainnet.z.cash" "gen=1" >> ${ZCASH_CONF}
+    "addnode=mainnet.z.cash" >> ${ZCASH_CONF}
 
 # no parameters display help
 ENTRYPOINT ["/usr/local/bin/zcashd"]
